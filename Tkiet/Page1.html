@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <title>Kiet's playground</title>
+  </head>
+  <body>
+    <script src="./js/code.js" defer></script>
+    <!-- toolbar góc trái -->
+    <header class="toolbar">
+      <button id="btnTheme" aria-label="Toggle theme">
+        <img
+          id="themeIcon"
+          class="theme-icon"
+          src="./img/dark_mode_light.webp"
+          data-light="./img/dark_mode_light.webp"
+          data-dark="./img/dark_mode_dark.webp"
+          alt="Toggle_Dark"
+          width="40"
+          height="40"
+          loading="eager"
+        />
+      </button>
+       <button id="btnSound" aria-label="Toggle sound">
+    <img
+      class="theme-icon"
+      width="40" height="40" alt="Sound"
+      data-on-light="./img/sound_toggle.webp"
+      data-on-dark ="./img/sound_toggle.webp"
+      data-off-light="./img/sound_off.webp"
+      data-off-dark ="./img/sound_off.webp"
+    />
+    <button id="btnHome" aria-label="Home">
+      <a href="../home.html"><img class="theme-icon" width="40" height="40" alt="Home" src="./img/Home.webp"></a>
+    </button>
+    </header>
+
+    <!-- Star + label -->
+<div class="star-wrap">
+  <button id="easterBtn" class="star-btn" aria-label="fun stuff">
+    <img class="star" src="./img/icon_star.webp" alt="fun stuff star">
+  </button>
+  <a href="#" id="easterTag" class="star-tag"><span class="colored_text">Fun tuff</span></a>
+</div>
+
+    <!-- khung card trung tâm -->
+    
+    <main class="card">
+      <div class="card-tab">Trang chủ</div>
+      <section class="card-inner">
+        <h1>Xin chào! <span class="accent">mình là kiệt</span></h1>
+        <p>Lập trình viên nghiệp dư, sinh viên, và đang học hỏi!</p>
+
+        <nav class="icon-menu">
+          <a href="#" data-open="popup-info">
+            <img
+              class="theme-icon"
+              src="./img/icon_about.webp"
+              data-light="./img/icon_about.webp"
+              data-dark="./img/icon_about_dark.webp"
+              width="64"
+              height="64"
+              alt="Thông tin"
+              loading="lazy"
+            />
+            <span>Thông tin</span>
+          </a>
+
+          <a href="#" data-open="popup-links"
+            ><img
+              class="theme-icon"
+              src="./img/icon_links.webp"
+              data-light="./img/icon_links.webp"
+              data-dark="./img/icon_links_dark.webp"
+              width="64"
+              height="64"
+              alt="Thông tin"
+              loading="lazy"
+            /><span>Đường dẫn</span></a
+          >
+          <a href="#" data-open="popup-projects"
+            ><img
+              class="theme-icon"
+              src="./img/icon_links.webp"
+              data-light="./img/icon_work.webp"
+              data-dark="./img/icon_work_dark.webp"
+              width="64"
+              height="64"
+              alt="Thông tin"
+              loading="lazy"
+            /><span>Dự án</span></a
+          >
+          <a href="#" data-open="popup-questions">
+            <img
+              class="theme-icon"
+              src="./img/icon_links.webp"
+              data-light="./img/icon_faq.webp"
+              data-dark="./img/icon_faq_dark.webp"
+              width="64"
+              height="64"
+              alt="Thông tin"
+              loading="lazy"
+            /><span>Câu hỏi</span></a
+          >
+          <a href="#" data-open="popup-contact">
+            <img
+              class="theme-icon"
+              src="./img/icon_links.webp"
+              data-light="./img/icon_contact.webp"
+              data-dark="./img/icon_contact_dark.webp"
+              width="64"
+              height="64"
+              alt="Thông tin"
+              loading="lazy"
+            /><span>Liên hệ</span></a
+          >
+        </nav>
+      </section>
+    </main>
+
+    <!-- single wave -->
+    <div class="wave-wrap" aria-hidden="true">
+      <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--wave1)" />
+            <stop offset="100%" stop-color="var(--wave2)" />
+          </linearGradient>
+        </defs>
+        <path>
+          <animate
+            attributeName="d"
+            dur="8s"
+            repeatCount="indefinite"
+            values="
+          M0,192 C360,248 720,96 1080,160 C1260,192 1350,208 1440,224 L1440,320 L0,320 Z;
+          M0,176 C360,128 720,240 1080,176 C1260,152 1350,168 1440,184 L1440,320 L0,320 Z;
+          M0,192 C360,248 720,96 1080,160 C1260,192 1350,208 1440,224 L1440,320 L0,320 Z
+        "
+          />
+        </path>
+      </svg>
+    </div>
+
+    <!-- The fucking frog isn't real it's goobo -->
+    <img
+      class="frog theme-icon"
+      src="./img/goobo_boat.webp"
+      data-light="./img/goobo_boat.webp"
+      data-dark="./img/sleepy_goobo.webp"
+      alt="goobo"
+      data-rotate="90"
+    />
+
+    <div class="popup-container">
+      <!-- popup "Thông tin" -->
+      <div id="popup-info" class="popup hidden">
+        <div class="popup-header">
+          <span>Thông tin</span>
+          <button class="close-btn" data-close>[ x ]</button>
+        </div>
+        <div class="popup-body">
+          <div class="pfp_info">
+            <img src="./img/profile_pic.webp" class="pfp_pic" />
+            <div class="info">
+              <div class="text">
+                Vũ Tuấn Kiệt
+                <br class="br_hidden" />
+                <span class="medium_2x1">(Erosi)</span>
+              </div>
+              <div class="base_text">Lập trình viên nghiệp dư, sinh viên.</div>
+            </div>
+          </div>
+          <hr />
+          <div class="pfp_detail_info">
+            <p>Xin chào mình là kiệt</p>
+            <h3>Quê Quán: <span class="colored_text">Hà Nam</span></h3>
+            <h3>Ngày sinh: <span class="colored_text">15/05/2006</span></h3>
+            <h3>
+              Trường: <span class="colored_text">Đại học bình dương</span>
+            </h3>
+            <h3>Sở thích</h3>
+            <ul>
+              <li>Chỉnh sửa, mày mò những thứ vô lí</li>
+              <li>Học nhiều thứ mới</li>
+              <li>Trải nghiệm đồ công nghệ</li>
+              <li>fumo</li>
+            </ul>
+          </div>
+          <div class="download_button">
+            <a href="./img/CV_VuTuanKiet.pdf" download>Tải CV</a>
+          </div>
+        </div>
+      </div>
+      <!-- popup Đường dẫn -->
+      <div id="popup-links" class="popup hidden">
+        <div class="popup-header">
+          <span>Đường dẫn</span>
+          <button id="close-links" data-close>[ x ]</button>
+        </div>
+        <div class="popup-body">
+          <div class="links">
+            <a href="#"><img src="./img/icon_zalo.webp" /><span>Zalo</span></a>
+            <a
+              href="https://www.facebook.com/vu.tuan.kiet.823717"
+              target="_blank"
+              ><img src="./img/icon_facebook.webp" /><span>Facebook</span></a
+            >
+            <a href="https://github.com/Kietvu1443" target="_blank"
+              ><img src="./img/icon_github.webp" /><span>Github</span></a
+            >
+            <a href="https://x.com/tuankiet_vtnktv" target="_blank"
+              ><img
+                src="./img/icon_twitter.webp"
+                class="theme-icon"
+                data-light="./img/icon_twitter.webp"
+                data-dark="./img/icon_twitter_dark.webp"
+              /><span>Twitter</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- popup Dự án -->
+      <div id="popup-projects" class="popup hidden">
+        <div class="popup-header">
+          <span>Dự án</span>
+          <button id="close-links" data-close>[ x ]</button>
+        </div>
+        <div class="popup-body">
+          <h2>Dự án hiện tại:</h2>
+          <span>Trang web này</span><br />
+          <img src="./img/thumnal.webp" width="300px" height="200px" />
+          <h2>Hình ảnh linh tinh:</h2>
+          <div class="list_img">
+            <img src="./img/devil.webp" />
+            <img src="./img/devil_2.webp" />
+            <img src="./img/yellonium.webp" />
+            <img src="./img/dumb.webp" />
+          </div>
+        </div>
+      </div>
+      <!-- popup Câu hỏi(FAQ) -->
+      <div id="popup-questions" class="popup hidden">
+        <div class="popup-header">
+          <span>Câu hỏi(FAQ)</span>
+          <button id="close-links" data-close>[ x ]</button>
+        </div>
+        <div class="popup-body">
+          <section class="faq">
+            <h2>Nhưng câu hỏi thường gặp</h2>
+
+            <details class="faq-item">
+              <summary>
+                <span>Bạn biết những ngôn ngữ nào ?</span><i class="chev"></i>
+              </summary>
+              <div class="faq-content">
+                <ul>
+                  <li><b>Lập trình:</b>C++,C#,python,luascript,</li>
+                  <li><b>Ngôn ngữ:</b>Tiếng anh,Tiếng nhật,..</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span>Dự định của trang web này</span><i class="chev"></i>
+              </summary>
+              <div class="faq-content">
+                <ul>
+                  <li>Thêm âm thanh cho web</li>
+                  <li>Sửa lỗi</li>
+                  <li>Thêm minigames</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                <span>Khi nào trang web hoàn thành</span><i class="chev"></i>
+              </summary>
+              <div class="faq-content">
+                <b>Soooon..</b>
+              </div>
+            </details>
+
+            <!-- thêm các <details> khác tương tự -->
+          </section>
+        </div>
+      </div>
+      <!-- popup Liên hệ -->
+      <div id="popup-contact" class="popup hidden">
+        <div class="popup-header">
+          <span>Liên hệ</span>
+          <button id="close-links" data-close>[ x ]</button>
+        </div>
+        <div class="popup-body">
+          <form class="contact-form" novalidate>
+            <h3>Nhập thông tin để liên hệ với mình nha.</h3>
+
+            <div class="form-row">
+              <label for="name">Tên của bạn</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+              <small class="error">Vui lòng nhập tên.</small>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email của bạn</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="ban@example.com"
+                required
+              />
+              <small class="error">Email chưa hợp lệ.</small>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Lời nhắn</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Mình muốn trao đổi về..."
+              ></textarea>
+            </div>
+
+            <button class="btn-send" type="submit">Gửi tin nhắn</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div id="device-warning" class="device-warning hidden">
+        <div class="warn-text">
+          <strong>Này bạn ơi!</strong><br />
+          Trang web này được xây dựng và được tối ưu trên máy tính nên là một số
+          hiệu ứng sẽ hoạt động không đúng mong đợi, thông cảm nha!
+        </div>
+        <button id="close-warning">Được thôi</button>
+      </div>
+      <div class="social">
+        <a><img src="./img/icon_zalo.webp" width="40" height="40" /></a>
+        <a href="https://www.facebook.com/vu.tuan.kiet.823717" target="_blank"
+          ><img src="./img/icon_facebook.webp" width="40" height="40"
+        /></a>
+        <a href="https://github.com/Kietvu1443" target="_blank"
+          ><img src="./img/icon_github.webp" width="40" height="40"
+        /></a>
+      </div>
+      <small>©2025 VuTuanKiet</small>
+    </footer>
+  </body>
+</html>

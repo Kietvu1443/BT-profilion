@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Chi Tiết</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fruktur&display=swap" rel="stylesheet">
+
+    <script> 
+     tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'classic-bg': '#EADECF', 
+                        'classic-border': '#4A372D', 
+                        'classic-accent': '#9E7E63', 
+
+                        'dark-bg': '#333A40',
+                        'dark-border': '#F8F5F1',
+                        'dark-accent': '#46034F', 
+                        'skill-hover': '#46034F', 
+                    },
+                    fontFamily: {
+                        sans: ['Fruktur', 'sans-serif'], 
+                        serif: ['Fruktur', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Fruktur', system-ui !important; 
+            background-image: url('classic_light_ver.jpg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            transition: background-image 0.4s ease, color 0.4s ease;
+        }
+
+        .classic-frame-detail {
+            border: 3px solid #65330a;
+            border-radius: 8px;
+            background-color: #F8F5F1;
+            padding: 1rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .classic-frame-detail::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px dashed #9E7E63;
+            border-radius: 5px;
+            pointer-events: none;
+            transition: border-color 0.4s ease;
+        }
+
+        .menu-title-box {
+            background-color: #65330a;
+            color: #F8F5F1;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 2px 2px 0 0 #5e2c0d;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .large-picture-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; 
+            border: 5px solid #65330a;
+            background-color: #D6C2B4; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #735745;
+            position: absolute; 
+            top: -1rem;
+            right: 2rem;
+            z-index: 10;
+            transition: all 0.4s ease;
+        }
+        
+         body.dark-theme {
+            background-image: url('classic_dark_ver.jpg'); 
+            color: #F8F5F1;
+        }
+
+        .dark-theme .classic-frame-detail {
+            border-color: #F8F5F1;
+            background-color: #2f195c40; 
+            color: #F8F5F1;
+        }
+
+        .dark-theme .classic-frame-detail::before {
+            border-color: #F8F5F1; 
+        }
+        
+        .dark-theme .menu-title-box {
+            background-color: #46034fdb;
+            color: #F8F5F1;
+            box-shadow: 2px 2px 0 0 #46034f32;
+        }
+
+       
+        .dark-theme .classic-frame:hover {
+            box-shadow: 6px 6px 0 0 #F8F5F1;
+            transform: translate(-2px, -2px);
+        }
+        
+       
+        .dark-theme .classic-frame:hover,
+        .dark-theme .classic-frame:active,
+        .dark-theme .classic-frame:focus {
+            background-color: #46034F !important; 
+            color: #F8F5F1 !important; 
+        }
+        
+        
+        .dark-theme .classic-frame.bg-classic-accent {
+            background-color: #46034f32; 
+        }
+
+        .dark-theme .classic-frame.bg-classic-accent:hover,
+        .dark-theme .classic-frame.bg-classic-accent:active {
+            background-color: #46034F !important; 
+        }
+
+        .dark-theme .large-picture-placeholder {
+            border-color: #F8F5F1;
+            background-color: #46034f4e;
+            color: #F8F5F1;
+        }
+        
+       .dark-theme .text-classic-accent,
+        .dark-theme .text-classic-border,
+        .dark-theme a {
+             color: #F8F5F1 !important; 
+        }
+
+        body.dark-theme .skill-link:hover,
+        body.dark-theme .skill-link:focus, 
+        body.dark-theme .skill-link:active { 
+            background-color: #46034F !important; 
+            color: #fffff9 !important;
+            border-color: #ffffff !important; 
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            z-index: 50;
+        }
+        .switch #theme-toggle {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider.round {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f9f8f7; 
+            transition: 0.4s;
+            border-radius: 34px; 
+            overflow: hidden;
+            border: 1px solid #735745;
+        }
+
+        .sun-moon {
+            position: absolute;
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background-color: #FEE715; 
+            transition: 0.4s;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.899); 
+            background-image: none; 
+        }
+
+        #theme-toggle:checked + .slider.round {
+            background-color: #333A40; 
+            border-color: #F8F5F1;
+        }
+        #theme-toggle:checked + .slider.round .sun-moon {
+            transform: translateX(26px); 
+            background-color: white; 
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+            background-image: radial-gradient(circle at 120% 50%, #333A40 60%, transparent 60%);
+        }
+    </style>
+
+</head>
+<body class="min-h-screen p-6 sm:p-10 font-serif bg-classic-bg">
+
+    <div class="fixed top-4 right-4 z-50">
+        <label class="switch">
+            <input id="theme-toggle" type="checkbox" /> 
+            <div class="slider round">
+                <div class="sun-moon">
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative">
+
+        <div class="large-picture-placeholder hidden md:flex">
+           <img src="face_2.jpg" alt="Lê Ngọc Thư" class="w-full h-full object-cover rounded-full">
+     </div>
+        </div>
+
+      <header class="mb-12">
+    <a href="#" class="inline-block classic-frame-detail px-3 py-2 text-classic-border hover:bg-classic-accent hover:text-white transition duration-200 skill-link mr-2"> 
+        <i data-lucide="home" class="w-5 h-5"></i>
+    </a>
+    <a href="profile.html" class="inline-block classic-frame-detail px-4 py-2 text-classic-border text-sm hover:bg-classic-accent hover:text-white transition duration-200 skill-link"> 
+        Back
+    </a>
+    
+    <h1 class="text-4xl md:text-5xl font-bold text-classic-border mt-6 text-center tracking-wider">
+     THÔNG TIN
+    </h1>
+    </header>
+
+        <div class="space-y-8">
+            
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <div class="menu-title-box w-full md:w-1/3 mb-2 md:mb-0 text-center">CÁ NHÂN</div>
+                <div id="personal-frame" class="classic-frame-detail w-full md:w-2/3 text-classic-border">
+                    
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Ngày sinh:</strong> 21/10/2006</li>
+                        <li><strong>Địa chỉ:</strong> DX07, Tổ 3, Tân An, Tân Phước Khánh, Tp.HCM </li>
+                        <li><strong>SĐT:</strong>0775332650 </li>
+                    </ul>
+
+                    <div id="personal-detail" class="hidden overflow-hidden transition-all duration-300 ease-in-out"> 
+                        <ul class="space-y-2 text-sm pt-2 border-t mt-2 border-classic-border/20">
+                            <li><strong>Email:</strong> 24050070@student.ndu.edu.vn</li>
+                            <li><strong>MXH:</strong> https://www.facebook.com/nthuddaay </li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-xs text-right mt-2">
+                        <a href="#" id="toggle-personal" class="text-classic-accent hover:text-classic-border dark:text-white dark:hover:text-dark-accent transition duration-200">
+                            Xem thêm
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <div class="menu-title-box w-full md:w-1/3 mb-2 md:mb-0 text-center">Sở thích</div>
+                <div id="hobby-frame" class="classic-frame-detail w-full md:w-2/3 text-classic-border">
+                    <p> Nghe nhạc, đọc sách, xem phim... </p>
+                    
+                    <div id="hobby-detail" class="hidden overflow-hidden transition-all duration-300 ease-in-out"> 
+                         <p class="pt-2 border-t mt-2 border-classic-border/20">Đọc tiểu thuyết trinh thám, xem phim tài liệu khoa học, và chăm sóc cá cảnh.</p>
+                    </div>
+                    
+                   <p class="text-xs text-right mt-2">
+                        <a href="#" id="toggle-hobby" class="text-classic-accent hover:text-classic-border dark:text-white dark:hover:text-dark-accent transition duration-200">
+                            Xem thêm
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <div class="menu-title-box w-full md:w-1/3 mb-2 md:mb-0 text-center">DỰ ÁN</div>
+                <div id="project-frame" class="classic-frame-detail w-full md:w-2/3 text-classic-border">
+                    
+                    <p>Đã và đang tham gia dự án của khoa và CLB. Vẫn chưa có dự án cá nhân</p>
+                    
+                    <div id="project-detail" class="hidden overflow-hidden transition-all duration-300 ease-in-out"> 
+                         <p class="pt-2 border-t mt-2">Dự án khoa: Tham gia chương trình nghiên cứu khoa học với sản phẩm: Ứng dụng học tập dành cho trẻ em khiếm thính.</p> 
+                          <p class="pt-2"> Dự án CLB: Tham gia tạo kế hoạch và lên mẫu sản phẩm cho các buổi Workshop và tổ chức sự kiện.</p>     
+                        </div>
+                    
+                   <p class="text-xs text-right mt-2">
+                        <a href="#" id="toggle-project" class="text-classic-accent hover:text-classic-border dark:text-white dark:hover:text-dark-accent transition duration-200">
+                            Xem thêm
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <div class="menu-title-box w-full md:w-1/3 mb-2 md:mb-0 text-center">Kỹ năng</div>
+                <a href="kynang.html" class="classic-frame-detail w-full md:w-2/3 text-left block text-lg font-bold text-classic-border hover:bg-classic-accent hover:text-white transition duration-200 skill-link">
+                     Biểu Đồ
+                </a>
+            </div>
+
+            <footer class="mt-12 pt-6 border-t-2 border-classic-border/50 text-center text-sm text-classic-accent">
+                <div class="flex justify-center items-center space-x-6">
+                    <a href="mailto:[24050070@student.bdu.edu.vn]" class="flex items-center space-x-1 hover:text-classic-border transition duration-200 skill-link">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Email: 24050070@student.bdu.edu.vn</span>
+                    </a>
+                    <a href="[https://www.facebook.com/nthuddaay]" target="_blank" class="flex items-center space-x-1 hover:text-classic-border transition duration-200 skill-link">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                        <span>FB: https://www.facebook.com/nthuddaay</span>
+                    </a>
+                </div>
+                <p class="mt-3"> NGỌC THƯ from Binh Duong University.</p>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script> 
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const loadTheme = () => {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                if (themeToggle) themeToggle.checked = true;
+            } else {
+                body.classList.remove('dark-theme');
+                if (themeToggle) themeToggle.checked = false;
+            }
+        };
+
+        const setupThemeToggle = () => {
+            if (themeToggle) {
+                themeToggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        body.classList.add('dark-theme');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        body.classList.remove('dark-theme');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+            }
+        };
+
+            const setupContentToggle = (toggleId, contentId) => {
+            const toggleButton = document.getElementById(toggleId);
+            const content = document.getElementById(contentId);
+
+            if (toggleButton && content) {
+                toggleButton.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    
+                    content.classList.toggle('hidden');
+                    
+                    if (content.classList.contains('hidden')) {
+                        toggleButton.textContent = 'Xem thêm';
+                    } else {
+                        toggleButton.textContent = 'Thu gọn';
+                    }
+                });
+            }
+        };
+
+        loadTheme();
+        setupThemeToggle();
+        lucide.createIcons();
+
+        setupContentToggle('toggle-personal', 'personal-detail');
+        setupContentToggle('toggle-hobby', 'hobby-detail');
+        setupContentToggle('toggle-project', 'project-detail');
+    </script>
+
+</body>
+</html>

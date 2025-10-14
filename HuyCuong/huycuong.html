@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Portfolio — ĐỖ HUY CƯỜNG</title>
+<meta content="Portfolio cá nhân: thông tin, kỹ năng, dự án, sở thích." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/></head>
+<body>
+<!-- Overlay Typewriter Intro -->
+<div aria-live="polite" class="intro-overlay" id="intro-overlay">
+<div class="intro-box">
+<span id="typewriter"></span><span class="cursor">|</span>
+</div>
+</div>
+<div aria-hidden="true" class="page-transition" id="page-transition"><div class="pane left"></div><div class="pane right"></div></div>
+<!-- Canvas hiệu ứng hạt / tia -->
+<canvas aria-hidden="true" id="fx-canvas"></canvas>
+<div class="bg-overlay"></div>
+<header class="topbar"><a aria-label="Về trang chủ" class="brand-home" href="../home.html"><i class="fa-solid fa-house"></i></a>
+<nav class="nav">
+<a href="#home">Trang chủ</a>
+<a href="#about">Thông tin</a>
+<a href="#gallery">Hình ảnh</a>
+<a href="#skills">Kỹ năng</a>
+<a href="#projects">Dự án</a>
+<a href="#contact">Liên hệ</a>
+<label aria-label="Chuyển Dark/Light" class="theme-switch">
+<input aria-label="Theme switch" id="themeSwitch" type="checkbox"/>
+<span class="track"><span class="thumb"></span></span>
+<span class="theme-label">Dark</span>
+</label>
+</nav>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Mở menu" class="hamburger"><span></span><span></span><span></span></button></header><div class="menu-backdrop" hidden id="menuBackdrop"></div><nav class="mobile-menu" hidden id="mobileMenu"><a href="#home">Trang chủ</a><a href="#about">Thông tin</a><a href="#gallery">Hình ảnh</a><a href="#skills">Kỹ năng</a><a href="#projects">Dự án</a><a href="#contact">Liên hệ</a></nav>
+<main class="hero section" id="home">
+<div class="hero-left">
+<div class="photo-3d card reveal avatar">
+<img alt="Ảnh đại diện" src="assets/avatar.png"/>
+</div>
+</div>
+<div class="hero-right">
+<div class="intro reveal">
+<span class="chip">Xin chào! Mình là</span>
+<h1>ĐỖ HUY CƯỜNG — <span class="accent">27TH02</span></h1>
+<p>Xin chào, mình là sinh viên năm 2 của Trường Đại học Bình Dương. Hiện tại mình đang theo học ngành công nghệ thông tin và định hướng trở thành một lập trình viên. Mặc dù chưa có nhiều kinh nghiệm thực tế, nhưng mình luôn có tinh thần học hỏi, tìm tòi cái mới và sẵn sàng tiếp thu góp ý từ mọi người.</p>
+<p>Mình hy vọng có thể nhận được sự hỗ trợ, chia sẻ từ thầy cô và bạn bè để ngày càng phát triển kỹ năng lập trình và hoàn thiện bản thân hơn.</p>
+<div class="cta-row">
+<a class="btn btn-primary" download="" href="Cv-DohuyCuong.pdf"><i class="fa-solid fa-file-arrow-down"></i> Tải CV</a>
+<a class="btn btn-ghost" href="#projects"><i class="fa-solid fa-folder-open"></i> Xem dự án</a>
+</div>
+</div>
+</div>
+</main>
+<section class="section info-section strengths-section" id="about">
+<div class="grid two">
+<div class="card reveal">
+<h2 class="section-title"><i class="fa-solid fa-id-card-clip"></i> Thông tin cá nhân</h2>
+<ul class="info">
+<li><span>Họ tên</span><b>Đỗ Huy Cường</b></li>
+<li><span>MSSV</span><b>24050069</b></li>
+<li><span>Nơi ở hiện tại </span><b>Khu Phố 6, Phường Bình Dương, <p>Thành Phố Hồ Chí Minh</p></b></li>
+<li><span>Quê quán</span><b>Tỉnh Thanh Hóa, Việt Nam</b></li>
+<li><span>Email</span><b>24050069@student.bdu.edu.vn</b></li>
+<li><span>Facebook</span><b>facebook.com/dohuycuong26</b></li>
+<li><span>GitHub</span><b>github.com/KaiiZz72</b></li>
+<li><span>Discord</span><b>dohuycuong26</b></li>
+</ul>
+</div>
+<div class="card reveal">
+<h2 class="section-title"><i class="fa-solid fa-rocket"></i> Điểm mạnh</h2>
+<div class="tags">
+<span class="tag">HTML/CSS/JS • Responsive</span>
+<span class="tag">UI độc lạ • Motion tinh tế</span>
+<span class="tag">Flexbox • Grid • Animation</span>
+<span class="tag">Teamwork tốt</span>
+<span class="tag">Có sự sáng tạo, những ý tưởng mới</span>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="gallery">
+<h2 class="section-title center"><i class="fa-solid fa-images"></i> Hình ảnh</h2>
+<p class="muted center">Một số hình ảnh của tôi ở trong lớp học &amp; ngoài trời.</p>
+<div class="grid three">
+<div class="card reveal hover-zoom"><img alt="Ảnh 1" src="assets/bg-c1.jpg"/></div>
+<div class="card reveal hover-zoom"><img alt="Ảnh 2" src="assets/bg-c2.jpg"/></div>
+<div class="card reveal hover-zoom"><img alt="Ảnh 3" src="assets/bg-c3.jpg"/></div>
+</div>
+<section class="section" id="hobbies">
+<h2 class="section-title center"><i class="fa-solid fa-heart"></i> Sở thích</h2>
+<p class="muted center">Một vài điều mình thích làm ngoài giờ học &amp; code.</p>
+<div class="grid three hobbies">
+<div class="hobby card reveal">
+<div class="hobby-icon"><i class="fa-solid fa-badminton"></i></div>
+<h3>Chơi cầu lông</h3>
+<p>Rèn luyện sức khỏe và phản xạ.</p>
+</div>
+<div class="hobby card reveal">
+<div class="hobby-icon"><i class="fa-solid fa-gamepad"></i></div>
+<h3>Game Minecraft</h3>
+<p>Thích sáng tạo, xây dựng server và mini‑game.</p>
+</div>
+<div class="hobby card reveal">
+<div class="hobby-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+<h3>Ăn KFC</h3>
+<p>Combo gà rán cay &amp; khoai 👍</p>
+</div>
+</div>
+</section>
+<section class="section" id="skills">
+<h2 class="section-title center"><i class="fa-solid fa-sparkles"></i> Chuyên môn / Kỹ năng</h2>
+<p class="muted center">Biểu đồ tròn — biểu đồ thể hiện kỹ năng chuyên môn.</p>
+<div class="skills rings grid six">
+<div class="skill-ring" data-color="--primary" data-label="Java" data-percent="90"></div>
+<div class="skill-ring" data-color="--accent" data-label="HTML/CSS" data-percent="86"></div>
+<div class="skill-ring" data-color="--primary" data-label="JavaScript" data-percent="82"></div>
+<div class="skill-ring" data-color="--accent" data-label="Paper API" data-percent="88"></div>
+<div class="skill-ring" data-color="--primary" data-label="Git/GitHub" data-percent="78"></div>
+<div class="skill-ring" data-color="--accent" data-label="Gradle/Maven" data-percent="80"></div>
+</div>
+</section>
+<section class="section" id="projects">
+<h2 class="section-title center"><i class="fa-solid fa-diagram-project"></i> Dự án</h2>
+<div class="grid three">
+<article class="project card reveal">
+<h3>Server Minecraft</h3>
+<p>Tạo nhiều plugin, tối ưu plugin, nâng cấp plugin.</p>
+<a class="btn small" href="https://github.com/Kaiizz72/BedrockHit" rel="noopener" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Xem demo</a>
+</article>
+<article class="project card reveal">
+<h3>Website Bán Hàng</h3>
+<p>Một website đơn giản, với ngôn ngữ html.</p>
+<a class="btn small" href="https://github.com/Kaiizz72/BedrockHit" rel="noopener" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Xem demo</a>
+</article>
+<article class="project card reveal">
+<h3>App Thay Đổi Giọng Nói</h3>
+<p>Một ứng dụng giúp thay đổi giọng nói, âm độ cao , thấp.</p>
+<a class="btn small" href="https://github.com/Kaiizz72/BedrockHit" rel="noopener" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Xem demo</a>
+</article>
+</div>
+</section>
+<section class="section" id="contact">
+<div class="card reveal center">
+<h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> Liên hệ</h2>
+<p>Inbox mình qua <b>Facebook</b> hoặc gửi email tới <b>24050069@student.bdu.edu.vn</b>.</p>
+<div class="cta-row center">
+<a class="btn btn-primary" href="mailto:24050069@student.bdu.edu.vn" rel="noopener"><i class="fa-solid fa-envelope"></i> Gửi email</a>
+<a class="btn btn-ghost" href="https://www.facebook.com/share/19hb4Nj5X8/" rel="noopener" target="_blank">
+<i class="fa-brands fa-facebook"></i> Facebook
+        </a>
+</div>
+</div>
+</section>
+<footer class="footer">
+<p>© 2025 — Made by Đỗ Huy Cường - 24050069.</p>
+</footer>
+<script src="script.js"></script>
+</section>
+<script>
+(function(){
+  if (window.__navBeepAttached) return; window.__navBeepAttached = true;
+  let audioCtx;
+  function beep(freq=620, dur=80, vol=0.12){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
+      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+      o.type="sine"; o.frequency.value=freq; o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(vol, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime+dur/1000);
+      o.start(); o.stop(audioCtx.currentTime+dur/1000);
+    }catch(e){}
+  }
+  window.__navBeep = () => { beep(620,80); setTimeout(()=>beep(740,70,0.10),65); };
+  function attach(){
+    document.querySelectorAll('nav.nav a').forEach(a=>{
+      a.addEventListener('click', window.__navBeep);
+      a.addEventListener('touchstart', window.__navBeep, {passive:true});
+    });
+  }
+  if (document.readyState !== 'loading') attach();
+  else document.addEventListener('DOMContentLoaded', attach);
+  window.attachNavSound = attach;
+})();
+</script>
+<script>
+// === Pleasant chime sounds for actions ===
+(function(){
+  if (window.__chimeSetup) return; window.__chimeSetup = true;
+  let ctx;
+  function ensureCtx(){
+    ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+    return ctx;
+  }
+  function envGain(duration=0.22, peak=0.18){
+    const c = ensureCtx();
+    const g = c.createGain();
+    const now = c.currentTime;
+    g.gain.cancelScheduledValues(now);
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(peak, now + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    g.connect(c.destination);
+    return g;
+  }
+  function tone(type, freq, dur=0.22, detune=0){
+    const c = ensureCtx();
+    const o = c.createOscillator();
+    o.type = type; o.frequency.value = freq; o.detune.value = detune;
+    const g = envGain(dur);
+    o.connect(g);
+    o.start(); o.stop(c.currentTime + dur);
+  }
+  function chimeA(){ // soft major 6th arpeggio
+    tone("sine", 660, .18); setTimeout(()=>tone("sine", 990, .18, 6), 70);
+    setTimeout(()=>tone("triangle", 1320, .16, -8), 120);
+  }
+  function chimeB(){ // lower, warm
+    tone("triangle", 523.25, .22, -4); setTimeout(()=>tone("sine", 784, .22, 3), 70);
+  }
+  function chimeC(){ // click confirm
+    tone("sine", 740, .14); setTimeout(()=>tone("sine", 988, .12), 60);
+  }
+  window.playChime = { primary: chimeA, link: chimeB, confirm: chimeC };
+
+  // Attach to specific actions
+  function attachActionSounds(){
+    const isMatch = (el, keywords) => {
+      const t = (el.textContent || el.getAttribute('aria-label') || "").toLowerCase();
+      return keywords.some(k => t.includes(k));
+    };
+    document.querySelectorAll('a, button').forEach(el => {
+      const href = (el.getAttribute('href') || "").toLowerCase();
+      const text = (el.textContent || "").toLowerCase();
+
+      // Buttons: Tải CV / Xem dự án / Gửi Gmail / Facebook
+      if (isMatch(el, ['tải cv','tai cv','xem dự án','xem dự an','xem demo','gửi gmail','gui gmail','gmail','facebook']) ||
+          href.startsWith('mailto:') || href.includes('facebook.com')){
+        const fn = href.startsWith('mailto:') ? playChime.link
+                  : (text.includes('tải cv') ? playChime.confirm
+                  : playChime.primary);
+        ['click','touchstart'].forEach(ev => el.addEventListener(ev, () => { try{ fn(); }catch(e){} }, {passive:true}));
+      }
+    });
+
+    // Fancy ripple mouse position for primary buttons
+    document.querySelectorAll('.btn.btn-primary').forEach(btn=>{
+      btn.addEventListener('pointermove', e => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        btn.style.setProperty('--y', `${e.clientY - rect.top}px`);
+      });
+    });
+  }
+  if (document.readyState !== 'loading') attachActionSounds();
+  else document.addEventListener('DOMContentLoaded', attachActionSounds);
+})();
+</script>
+<script>
+/* injected: house+hamburger+sound */
+(function(){
+  /* WebAudio chimes */
+  let ctx; function AC(){ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();return ctx;}
+  function env(peak=0.18,dur=0.28){const c=AC(),g=c.createGain(),t=c.currentTime;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur); g.connect(c.destination); return {g,t}; }
+  function osc(type,f,det=0){const o=AC().createOscillator(); o.type=type; o.frequency.value=f; o.detune.value=det; return o;}
+  function play(notes,dur=.26){const {g,t}=env(.22,dur+.02); notes.forEach(([ty,f,dt=0,de=0,nd=.2])=>{const o=osc(ty,f,de); o.connect(g); o.start(t+dt); o.stop(t+dt+nd);});}
+  const SND={ nav:()=>play([["sine",660,0,0,.16],["triangle",990,.07,0,.16],["sine",1320,.12,-6,.14]],.28),
+               confirm:()=>play([["triangle",523.25,0,-3,.19],["sine",783.99,.07,3,.16]],.26),
+               link:()=>play([["sine",700,0,0,.14],["sine",880,.06,0,.12]],.22) };
+  function attachSounds(root=document){
+    root.querySelectorAll('nav.nav a, #mobileMenu a').forEach(a=>{['click','touchstart'].forEach(ev=>a.addEventListener(ev,()=>{try{SND.nav();}catch(e){}},{passive:true}));});
+    root.querySelectorAll('a,button').forEach(el=>{const href=(el.getAttribute('href')||'').toLowerCase(); const text=(el.textContent||'').toLowerCase();
+      let fn=null; if(href.startsWith('mailto:')||text.includes('gmail')) fn=SND.link;
+      else if(href.includes('facebook.com')||text.includes('facebook')) fn=SND.link;
+      else if(text.includes('tải cv')||text.includes('tai cv')) fn=SND.confirm;
+      else if(text.includes('xem demo')||text.includes('xem dự án')||text.includes('xem du an')) fn=SND.nav;
+      if(fn) ['click','touchstart'].forEach(ev=>el.addEventListener(ev,()=>{try{fn();}catch(e){}},{passive:true})); }); }
+  const btn=document.querySelector('.hamburger'); const menu=document.getElementById('mobileMenu');
+  function openMenu(){ if(!menu) return; menu.hidden=false; btn&&btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; attachSounds(menu);}
+  function closeMenu(){ if(!menu) return; menu.hidden=true;  btn&&btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  if(btn&&menu){ btn.addEventListener('click',()=> menu.hidden?openMenu():closeMenu());
+    menu.addEventListener('click',e=>{ if(e.target.matches('a')) closeMenu(); });
+    document.addEventListener('click',e=>{ if(!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+  }
+  if(document.readyState!=='loading') attachSounds(); else document.addEventListener('DOMContentLoaded', attachSounds);
+})();
+</script>
+<script>
+/* menu-fixed-backdrop-sounds */
+(function(){
+  /* Measure header height -> CSS var */
+  function updateHeaderH(){
+    const h=(document.querySelector('header.site')?.offsetHeight||56);
+    document.documentElement.style.setProperty('--headerH', h + 'px');
+  }
+  updateHeaderH(); window.addEventListener('resize', updateHeaderH);
+
+  const btn=document.querySelector('.hamburger');
+  const menu=document.getElementById('mobileMenu');
+  const shade=document.getElementById('menuBackdrop');
+
+  let scrollY=0;
+  function lockScroll(){
+    scrollY=window.scrollY;
+    document.body.style.position='fixed';
+    document.body.style.top=`-${scrollY}px`;
+    document.body.style.width='100%';
+  }
+  function unlockScroll(){
+    document.body.style.position=''; document.body.style.top=''; document.body.style.width='';
+    window.scrollTo(0,scrollY);
+  }
+
+  function openMenu(){ if(!menu) return;
+    document.body.dataset.menuOpen='1';
+    menu.hidden=false; shade && (shade.hidden=false);
+    btn && btn.setAttribute('aria-expanded','true');
+    lockScroll();
+  }
+  function closeMenu(){ if(!menu) return;
+    document.body.dataset.menuOpen='0';
+    menu.hidden=true; shade && (shade.hidden=true);
+    btn && btn.setAttribute('aria-expanded','false');
+    unlockScroll();
+  }
+  if(btn && menu){
+    btn.addEventListener('click', ()=> (document.body.dataset.menuOpen==='1'? closeMenu(): openMenu()));
+    shade && shade.addEventListener('click', closeMenu);
+    menu.addEventListener('click', e=>{ if(e.target.matches('a')) closeMenu(); });
+    window.addEventListener('resize', ()=>{ if(window.innerWidth>768) closeMenu(); });
+  }
+
+  /* Sounds: reuse SND if defined, else define nice chimes */
+  let ctx;
+  function AC(){ ctx=ctx||new(window.AudioContext||window.webkitAudioContext)(); return ctx; }
+  function env(peak=.2, dur=.28){ const c=AC(), g=c.createGain(), t=c.currentTime;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur); g.connect(c.destination); return {g,t}; }
+  function osc(type,f,det=0){ const o=AC().createOscillator(); o.type=type; o.frequency.value=f; o.detune.value=det; return o; }
+  function play(notes,dur=.26){ const {g,t}=env(.22,dur+.02);
+    notes.forEach(([ty,f,dt=0,de=0,nd=.2])=>{ const o=osc(ty,f,de); o.connect(g); o.start(t+dt); o.stop(t+dt+nd); }); }
+  window.SND = window.SND || {
+    nav:     ()=> play([["sine",660,0,0,.16],["triangle",990,.07,0,.16],["sine",1320,.12,-6,.14]], .28),
+    confirm: ()=> play([["triangle",523.25,0,-3,.19],["sine",783.99,.07,3,.16]], .26),
+    link:    ()=> play([["sine",700,0,0,.14],["sine",880,.06,0,.12]], .22)
+  };
+
+  function attach(){
+    document.querySelectorAll('nav.nav a, #mobileMenu a').forEach(a=>{
+      ['click','touchstart'].forEach(ev=> a.addEventListener(ev, ()=>{ try{ SND.nav(); }catch(e){} }, {passive:true}));
+    });
+    document.querySelectorAll('a,button').forEach(el=>{
+      const href=(el.getAttribute('href')||'').toLowerCase();
+      const text=(el.textContent||'').toLowerCase();
+      let fn=null;
+      if (href.startsWith('mailto:') || text.includes('gmail')) fn=SND.link;
+      else if (href.includes('facebook.com') || text.includes('facebook')) fn=SND.link;
+      else if (text.includes('tải cv') || text.includes('tai cv')) fn=SND.confirm;
+      else if (text.includes('xem demo') || text.includes('xem dự án') || text.includes('xem du an')) fn=SND.nav;
+      if (fn) ['click','touchstart'].forEach(ev=> el.addEventListener(ev, ()=>{ try{ fn(); }catch(e){} }, {passive:true}));
+    });
+  }
+  if (document.readyState!=='loading') attach(); else document.addEventListener('DOMContentLoaded', attach);
+})();
+</script>
+</body>
+</html>
