@@ -27,18 +27,109 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
+/* ===== SHARLE DARK THEME ===== */
 .dark {
-  --bau-troi: #0f1115;
-  --chu: #e5e7eb;
-  --accent: #fbbf24;
-  --card: #1f2937;
-  --vien-card: #111827;
-  --bong-card: 0 8px 0 #0b0f14;
-  --wave1: #0e2e46;
-  --wave2: #0a1f30;
-  --accent: #fbbf24;
-  --chu: #e5e7eb;
+  /* Nền tổng thể */
+  --bau-troi: #0c0d11;            /* nền chính (deep black-blue) */
+  --card: #15161a;                /* thẻ card nổi nhẹ */
+  --vien-card: #24252c;           /* viền tinh tế */
+  --bong-card: 0 12px 28px rgba(0, 0, 0, 0.75); /* bóng sâu */
+
+  /* Màu chữ & accent */
+  --chu: #e6e9f0;                 /* trắng dịu */
+  --accent: #8b5cf6;              /* tím Sharle */
+  
+  /* Gradient wave tím ánh xanh */
+  --wave1: #1a1b26;
+  --wave2: #101015;
+
+  /* Hiệu ứng mượt */
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* === Card & Popup với hiệu ứng phát sáng tím === */
+.dark .card,
+.dark .popup {
+  background: linear-gradient(180deg, #14151a 0%, #101114 100%);
+  border: 1.5px solid color-mix(in srgb, var(--accent) 28%, var(--vien-card));
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.18),
+    0 14px 28px rgba(0, 0, 0, 0.7);
+}
+
+/* === Text accent phát sáng === */
+.dark .accent,
+.dark .colored_text {
+  color: var(--accent);
+  text-shadow:
+    0 0 6px rgba(139, 92, 246, 0.4),
+    0 0 12px rgba(139, 92, 246, 0.15);
+}
+
+/* === Icon hover glow === */
+.dark .icon-menu a:hover img {
+  filter: brightness(1.35) drop-shadow(0 0 8px var(--accent));
+}
+.dark .icon-menu a:hover span {
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(139, 92, 246, 0.35);
+}
+
+/* === Toolbar icons === */
+.dark .toolbar img {
+  filter: brightness(1.1);
+}
+.dark .toolbar button:hover img {
+  filter: brightness(1.4) drop-shadow(0 0 6px var(--accent));
+}
+
+/* === Footer nhẹ nhàng === */
+.dark .footer {
+  color: rgba(220, 220, 235, 0.55);
+}
+
+/* === Popup Header === */
+.dark .popup-header {
+  background: linear-gradient(90deg, #1e1f28, #181920);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, var(--vien-card));
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.2);
+}
+
+/* === Buttons & Inputs highlight tím === */
+.dark .btn-send {
+  background: var(--accent);
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+.dark .btn-send:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.6);
+}
+.dark .form-row input,
+.dark .form-row textarea {
+  background: #0e0f13;
+  border: 2px solid color-mix(in srgb, var(--accent) 15%, var(--vien-card));
+  color: var(--chu);
+}
+.dark .form-row input:focus,
+.dark .form-row textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* === Wave nền tím nhạt chuyển động === */
+.dark .wave path {
+  fill: url(#waveGrad);
+}
+.dark #waveGrad stop[offset="0%"] {
+  stop-color: #2b2369; /* tím sáng */
+}
+.dark #waveGrad stop[offset="100%"] {
+  stop-color: #181a2b; /* tím đậm */
+}
+
+
 
 /* ===== Layout & background ===== */
 * {
@@ -66,6 +157,12 @@ body {
   border-radius: 50%;
   width: 200px;
   height: 200px;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+/* Khi hover */
+.pfp_pic:hover {
+  transform: scale(1.08);
 }
 .info {
   padding-left: calc(var(--spacing) * 9);
@@ -81,6 +178,17 @@ body {
 }
 .colored_text {
   color: var(--accent);
+}
+.colored_text_bold{
+  color: var(--accent);
+  font-size: 20px;
+}
+.dark .colored_text_bold{
+  color: var(--accent);
+  font-weight: bold;
+   text-shadow:
+    0 0 6px rgba(139, 92, 246, 0.4),
+    0 0 12px rgba(139, 92, 246, 0.15);
 }
 .pfp_detail_info {
   position: relative;
@@ -113,8 +221,33 @@ body {
 
 .links a:hover {
   transform: scale(1.1);
-  color: orange;
+  color: var(--accent);
 }
+.tips{
+  display: flex;
+  justify-content: center;
+}
+.tips h2{
+  margin-top: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid gray;
+}
+
+.tips-2{
+  display: flex;
+  justify-content: center;
+}
+.tips-2 h2{
+  margin-top: 13px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 3px solid gray;
+}
+
+
+
+
 .main_contact {
   display: flex;
   flex-direction: column;
@@ -176,6 +309,7 @@ body {
   border-radius: 10px;
   background: var(--card);
   box-shadow: var(--bong-card);
+  z-index: 1;
 }
 .card-tab {
   background: #3a3a3a;
@@ -230,6 +364,14 @@ body {
   bottom: 18px;
   width: 90px;
   animation: bob 5s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.frog:hover {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 0 10px rgba(147, 112, 219, 0.6));
 }
 @keyframes bob {
   0%,
@@ -240,6 +382,65 @@ body {
     transform: translateY(-10px);
   }
 }
+.frog.is-dancing { filter: drop-shadow(0 0 10px rgba(139,92,246,.5)); }
+
+#easterBtn {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  color: var(--accent);
+}
+
+#easterBtn.playing {
+  transform: scale(1.05) rotate(10deg);
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+/* === Frog chat bubble === */
+.frog-chat{
+  position: fixed;
+  right: 118px;         /* đặt cạnh con ếch (ếch đang right:22px) */
+  bottom: 110px;        /* hơi cao hơn ếch một chút */
+  max-width: 260px;
+  background: var(--card);
+  color: var(--chu);
+  border: 1.5px solid var(--vien-card);
+  border-radius: 12px;
+  padding: 10px 12px 10px 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  opacity: 0;
+  transform: translateY(8px) scale(.96);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .25s cubic-bezier(.16,1,.3,1);
+  z-index: 25;
+}
+.frog-chat.show{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+.frog-chat p{ margin: 0; line-height: 1.35; font-weight: 600; }
+.frog-chat .x{
+  position: absolute; top: 6px; right: 8px;
+  border: 0; background: transparent; color: inherit;
+  font-size: 18px; cursor: pointer; opacity: .6;
+}
+.frog-chat .x:hover{ opacity: 1; }
+
+/* đuôi bong bóng */
+.frog-chat::after{
+  content:""; position: absolute; right: -1px; bottom: -9px;
+  width: 10px; height: 14px; transform: rotate(45deg);
+  background: var(--card);
+  border-right: 1.5px solid var(--vien-card);
+  border-bottom: 1.5px solid var(--vien-card);
+}
+
+/* Dark: viền & glow tím nhẹ cho đồng bộ theme */
+.dark .frog-chat{
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--vien-card));
+  box-shadow: 0 0 16px rgba(139,92,246,.18), 0 14px 28px rgba(0,0,0,.7);
+}
+.dark .frog-chat::after{
+  border-right-color: color-mix(in srgb, var(--accent) 28%, var(--vien-card));
+  border-bottom-color: color-mix(in srgb, var(--accent) 28%, var(--vien-card));
+}
+
+
 .wave path {
   fill: url(#waveGrad);
 }
@@ -247,7 +448,7 @@ body {
   position: fixed; /* quan trọng: không bị trượt theo layout */
   inset: auto 0 0 0; /* left:0; right:0; bottom:0; */
   height: var(--water-h); /* độ cao khu vực nước */
-  z-index: 0; /* ở sau card/footer */
+  z-index: 1; /* ở sau card/footer */
   pointer-events: none; /* không chắn click */
   overflow: hidden; /* cắt phần wave dư */
 }
@@ -265,9 +466,7 @@ body {
   bottom: 8px;
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
-}
-.dark .footer {
-  color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
 }
 .social {
   display: flex;
@@ -293,12 +492,11 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   user-select: none;
-
-  /* hiệu ứng ban đầu: nhỏ & mờ */
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.4);
-  /* transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease; */
-  transition: transform 0.3s ease, opacity 0.1s ease; /* 👈 tốc độ và easing */
+  transform: translate(-50%, -50%) scale(0.8) translateY(20px);
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   z-index: 999;
 }
@@ -333,8 +531,15 @@ body {
 /* khi mở popup */
 .popup.open {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1) translateY(0);
   pointer-events: auto;
+}
+.popup.closing {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9) translateY(20px);
+  transition:
+    opacity 0.2s ease-in,
+    transform 0.3s ease-in;
 }
 
 /* khi tắt hẳn */
@@ -349,6 +554,43 @@ body {
 .popup.dragging .popup-header {
   cursor: grabbing;
 }
+/* Center mặc định */
+.popup { left:50%; top:50%; transform: translate(-50%,-50%); }
+/* Khi đã có vị trí người dùng đặt, bỏ center transform */
+.popup.placed { transform: none; }
+
+.popup.no-anim { transition: none !important; }
+
+.home_town{
+  font-size: large;
+  font-weight: bold;
+}
+.home_town a{
+  text-decoration: none;
+}
+
+
+.night_sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.night_sky img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Khi bật dark mode */
+.dark .night_sky {
+  opacity: 1;
+  filter: brightness(0.3) contrast(1.1);
+}
+
 /* ===== Hover icon scale ===== */
 .icon-menu a img {
   transition: transform 0.25s ease, filter 0.25s ease;
@@ -505,7 +747,7 @@ body {
   border-top: 1px solid transparent;
 }
 .faq-item[open] .faq-content {
-  max-height: 300px; /* đủ lớn để chứa nội dung */
+  max-height: 400px; /* đủ lớn để chứa nội dung */
   padding: 16px 18px 18px;
   border-top-color: var(--vien-card);
 }
@@ -516,6 +758,9 @@ body {
 }
 
 
+.updatex{
+  padding: 15px;
+}
 /* === Star + fun stuff label === */
 .star-wrap{
   position: fixed;
@@ -710,4 +955,277 @@ body {
   .device-warning {
     display: none !important;
   }
+}
+
+/* ==== WORK GALLERY ==== */
+.work-gallery { padding-top: 16px; }
+
+.work-title {
+  margin: 0 0 12px;
+  letter-spacing: .06em;
+  font-weight: 800;
+  padding: 20px;
+}
+
+.work-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 6px 0 16px;
+}
+
+.chip {
+  border: 1px solid var(--vien-card);
+  background: color-mix(in srgb, var(--card) 90%, transparent);
+  color: var(--chu);
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.chip:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.chip:focus-visible{
+  outline: none;
+}
+.chip.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: stretch; 
+  align-items: stretch;  
+  padding-inline: 6px; 
+}
+
+.work-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--vien-card);
+  background: var(--card);
+  transform: translateZ(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* hiệu ứng phóng to toàn card */
+.work-card:hover {
+  transform: scale(1.2); /* 👈 phóng to khung */
+  z-index: 10; /* đè lên card xung quanh khi hover */
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* ảnh bên trong phóng nhẹ theo card */
+.work-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.15); /* 👈 ảnh phóng theo khung */
+  filter: brightness(1.05);
+}
+
+
+/* responsive nhẹ cho ô nhỏ hơn */
+@media (max-width: 480px) {
+  .work-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+
+/* ==== LIGHTBOX ==== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  transition: opacity 0.25s ease;
+}
+.lightbox.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+.lightbox:not(.hidden) img {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+
+/* ==== Compact chips (nhỏ gọn như ảnh) ==== */
+.chip-row{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin: 6px 0 4px;
+}
+
+.chip-sm{
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--vien-card);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--vien-card) 35%, transparent);
+  user-select: none;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.chip-sm:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.chip-sm:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* ==== Pills mô tả mảnh như ảnh thứ 2 ==== */
+.pill-group{ display:flex; flex-direction:column; gap:12px; margin-top:10px; }
+
+.pill-sm{
+  min-height: 48px;                     /* mảnh, gọn */
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--vien-card);
+  background: var(--card);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--vien-card) 20%, transparent);
+  transition: box-shadow .2s ease, transform .15s ease;
+}
+
+.pill-sm:hover{ transform: translateY(-1px); }
+
+
+/* Star glow ở Dark mode — đồng bộ accent */
+.dark .star {
+  /* ánh tím nhẹ + sáng hơn chút */
+  filter: brightness(1.15)
+          drop-shadow(0 0 8px color-mix(in srgb, var(--accent) 55%, transparent));
+  transition: transform .2s ease, filter .25s ease;
+}
+
+/* Hover: glow mạnh hơn giống icon-menu */
+.dark .star-btn:hover .star {
+  filter: brightness(1.35)
+          drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 80%, transparent));
+}
+
+/* Khi đang “nhảy” (nếu muốn đồng bộ hiệu ứng đang phát nhạc) */
+.dark .star.is-dancing {
+  filter: brightness(1.4)
+          drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 90%, transparent));
+}
+
+.special_text{
+  border-left: 5px solid gray;
+  padding: 5px;
+}
+
+/* ==== DIAGONAL METEOR 45° (dark-only, white) ==== */
+.night{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;              /* dưới card/footer */
+  pointer-events: none;
+  display: none;           /* tắt ở Light */
+  transform: rotateZ(45deg);
+}
+.dark .night{ display: block; }
+
+/* màu trắng thuần cho vệt & glow */
+:root{
+  --meteor-core: #fff;
+  --meteor-glow: rgba(255,255,255,.9);
+}
+
+.meteor{
+  position: absolute;
+  top: 0;
+  left: -30vw;                      /* bắt đầu ngoài khung nhìn */
+  width: 160px;                     /* dài hơn cho đã mắt */
+  height: 4px;                      /* dày hơn */
+  background: linear-gradient(90deg, var(--meteor-core), rgba(255,255,255,0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 14px var(--meteor-glow));
+  opacity: .95;
+  animation: meteorTail 6.2s ease-in-out infinite,
+             meteorRun 6.2s ease-in-out infinite;
+}
+
+/* đuôi co giãn */
+@keyframes meteorTail{
+  0%   { width: 0; }
+  30%  { width: 160px; }
+  100% { width: 0; }
+}
+
+/* chạy theo trục X của container (container xoay 45° => quỹ đạo chéo 45°) */
+@keyframes meteorRun{
+  0%   { transform: translateX(0);       opacity: 1; }
+  100% { transform: translateX(160vw);   opacity: 0; }
+}
+
+/* lóe nhẹ 2 tia ngang quanh đầu vệt */
+.meteor::before,
+.meteor::after{
+  content:"";
+  position:absolute;
+  left: 100%;
+  top: 50%;
+  width: 120px;
+  height: 3px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255,255,255,0), #fff, rgba(255,255,255,0));
+  border-radius: 100%;
+  animation: meteorBlink 3.2s ease-in-out infinite;
+}
+.meteor::after{
+  top: calc(50% + 8px);
+  width: 80px;
+  height: 2px;
+}
+@keyframes meteorBlink{
+  0%   { width: 0; opacity: 0; }
+  45%  { width: 120px; opacity: 1; }
+  100% { width: 0; opacity: 0; }
+}
+
+/* phân bố vị trí + delay để tự nhiên */
+.meteor:nth-child(1){ top: 10vh; left: -25vw; animation-delay: .3s; }
+.meteor:nth-child(2){ top: 30vh; left: -35vw; animation-delay: 1.0s; }
+.meteor:nth-child(3){ top: 50vh; left: -28vw; animation-delay: 1.9s; }
+.meteor:nth-child(4){ top: 70vh; left: -40vw; animation-delay: 2.5s; }
+.meteor:nth-child(5){ top: 85vh; left: -18vw; animation-delay: 3.0s; }
+
+/* Dark: glow mạnh hơn một chút */
+.dark .meteor{
+  filter: drop-shadow(0 0 18px var(--meteor-glow)) brightness(1.25);
 }
