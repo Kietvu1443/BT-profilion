@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Khởi đầu</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* --- Intro Page Style --- */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      background: url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Cinzel Decorative', serif;
+      position: relative;
+      transition: background 0.6s ease;
+    }
+
+    body.dark {
+      background: url('images/bg_dark.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* --- Intro panel --- */
+    .intro-panel {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 215, 120, 0.4);
+      border-radius: 20px;
+      padding: 60px 80px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 215, 120, 0.2);
+      transform: translateY(-100vh);
+      animation: dropDown 1s ease forwards;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    @keyframes dropDown {
+      0% { transform: translateY(-100vh); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .intro-logo {
+      width: 160px;
+      margin-bottom: 40px;
+    }
+
+    #enter-btn {
+      background: rgba(255, 215, 120, 0.2);
+      border: 1px solid rgba(255, 215, 120, 0.6);
+      color: #f5d36c;
+      font-size: 1.2em;
+      padding: 12px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, opacity 0.8s;
+    }
+
+    #enter-btn:hover {
+      background: rgba(255, 215, 120, 0.4);
+      transform: scale(1.05);
+    }
+
+    .fade-out {
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-100px); }
+    }
+
+    /* --- Home button --- */
+    #home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 215, 120, 0.2);
+      border: 1px solid rgba(255, 215, 120, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      z-index: 20;
+    }
+
+    #home-btn:hover {
+      background: rgba(255, 215, 120, 0.4);
+      transform: scale(1.1);
+    }
+
+    #home-btn img {
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+
+    /* --- Dark mode toggle with icons --- */
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 28px;
+      border-radius: 30px;
+      background: rgba(255, 215, 120, 0.25);
+      border: 1px solid rgba(255, 215, 120, 0.6);
+      cursor: pointer;
+      transition: background 0.4s ease, border 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      box-sizing: border-box;
+      z-index: 20;
+    }
+
+    .dark-toggle .circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #f5d36c;
+      transition: transform 0.4s ease, background 0.4s ease;
+    }
+
+    .dark-toggle .icon {
+      font-size: 14px;
+      color: #f5d36c;
+      transition: opacity 0.3s ease;
+    }
+
+    .dark-toggle .moon {
+      opacity: 0;
+    }
+
+    body.dark .dark-toggle {
+      background: rgba(120, 180, 255, 0.25);
+      border-color: rgba(120, 180, 255, 0.6);
+    }
+
+    body.dark .dark-toggle .circle {
+      transform: translateX(32px);
+      background: #aee1ff;
+    }
+
+    body.dark .dark-toggle .sun {
+      opacity: 0;
+    }
+
+    body.dark .dark-toggle .moon {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="firefly-area"></div>
+
+  <!-- Home Button -->
+  <div id="home-btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
+  </div>
+
+  <!-- Nút dark mode -->
+  <button id="darkToggle" class="dark-toggle" aria-pressed="false" aria-label="Bật tắt chế độ tối" title="Bật/tắt Dark mode">
+    <span class="knob" aria-hidden="true">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </span>
+  </button>
+
+
+  <!-- Intro panel -->
+  <div class="intro-panel">
+    <img src="images/logo.png" alt="Logo" class="intro-logo">
+    <br>
+    <button id="enter-btn">My Portfolio</button>
+  </div>
+
+ <script>
+const clickSound = new Audio("click.mp3");
+clickSound.volume = 0.25;
+clickSound.preload = "auto";
+
+const darkToggleIntro = document.getElementById("darkToggle");
+const body = document.body;
+
+// ✅ Khi load intro, đồng bộ Dark Mode
+if (localStorage.getItem("darkMode") === "true") {
+  body.classList.add("dark");
+  darkToggleIntro.classList.add("active");
+} else {
+  body.classList.remove("dark");
+  darkToggleIntro.classList.remove("active");
+}
+
+// 🌙 Bật / tắt Dark Mode
+darkToggleIntro.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+
+  const isDark = body.classList.toggle("dark");
+  darkToggleIntro.classList.toggle("active", isDark);
+  localStorage.setItem("darkMode", isDark);
+});
+
+// 🚪 Nút Portfolio
+document.addEventListener("DOMContentLoaded", () => {
+  const panel = document.querySelector(".intro-panel");
+  const enterBtn = document.getElementById("enter-btn");
+
+  if (!enterBtn || !panel) return;
+
+  enterBtn.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+    panel.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = "portfolio.html";
+    }, 800);
+  });
+});
+
+// 🏠 Nút Home
+const homeBtn = document.getElementById("home-btn");
+if (homeBtn) {
+  homeBtn.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+    window.location.href = "portfolio.html";
+  });
+}
+
+// ✨ Đom đóm
+document.addEventListener("DOMContentLoaded", () => {
+  const fireflyArea = document.querySelector(".firefly-area");
+  if (!fireflyArea) return;
+
+  const fireflyCount = 12;
+  for (let i = 0; i < fireflyCount; i++) {
+    const f = document.createElement("div");
+    f.classList.add("firefly");
+
+    const startX = Math.random() * 100;
+    const endX = Math.random() * 100;
+    const startY = Math.random() * 100;
+    const endY = Math.random() * 100;
+
+    f.style.setProperty("--x-start", `${startX}vw`);
+    f.style.setProperty("--y-start", `${startY / 5}vh`);
+    f.style.setProperty("--x-end", `${endX}vw`);
+    f.style.setProperty("--y-end", `${endY / 5}vh`);
+
+    const colors = ["#f5e77d", "#b2f5a3", "#ffffffcc"];
+    f.style.background = `radial-gradient(circle, ${
+      colors[Math.floor(Math.random() * colors.length)]
+    } 0%, transparent 70%)`;
+
+    f.style.animationDuration = `${10 + Math.random() * 10}s, ${
+      1.5 + Math.random()
+    }s`;
+
+    fireflyArea.appendChild(f);
+  }
+});
+</script>
+
+
+</body>
+</html>

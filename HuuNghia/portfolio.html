@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hồ sơ cá nhân Hữu Nghĩa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+  <video id="idle-video" src="./images/video.mp4" autoplay muted loop playsinline></video>
+  <!-- 🔊 Music Toggle -->
+<div id="musicToggle" class="music-toggle" aria-label="Bật/Tắt nhạc nền" aria-pressed="false">
+  <div class="knob">
+    <span class="icon-sound">🔊</span>
+    <span class="icon-mute">🔈</span>
+  </div>
+</div>
+
+  <!-- Nút dark mode -->
+  <button id="darkToggle" class="dark-toggle" aria-pressed="false" aria-label="Bật tắt chế độ tối" title="Bật/tắt Dark mode">
+    <span class="knob" aria-hidden="true">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </span>
+  </button>
+
+  
+
+  <!-- HEADER BĂNG RON -->
+  <header class="main-header" aria-hidden="false">
+    <h1>PORTFOLIO</h1>
+  </header>
+<!-- 🌌 Video nền màn hình chờ -->
+<video id="idle-video" src="./images/video.mp4" muted loop></video>
+
+  <!-- MENU -->
+  <div class="menu" role="navigation" aria-label="Main menu">
+    <div class="menu-top-circle"><img src="images/logo.png" alt="Logo"></div>
+
+    <div class="menu-item" data-panel="single" role="button" tabindex="0">
+      <label>Thông tin cá nhân</label>
+      <div class="tooltip">Thông tin cơ bản về bản thân và học vấn.</div>
+    </div>
+
+    <div class="menu-item" data-panel="multi" role="button" tabindex="0">
+      <label>Sở thích</label>
+      <div class="tooltip">Những hoạt động giúp tôi thư giãn và giải tỏa căng thẳng.</div>
+    </div>
+
+    <div class="menu-item" data-panel="options" role="button" tabindex="0">
+      <label>Chuyên môn</label>
+      <div class="tooltip">Những kỹ năng và kinh nghiệm tôi đã tích lũy.</div>
+    </div>
+
+    <div class="menu-item" data-panel="credits" role="button" tabindex="0">
+      <label>Dự án</label>
+      <div class="tooltip">Các dự án cá nhân và mục tiêu tương lai.</div>
+    </div>
+
+    <div class="menu-item quit" role="button" tabindex="0">
+      <a href="../home.html" aria-label="Thoát">🏠︎</a>
+      <div class="tooltip">Rời khỏi menu.</div>
+    </div>
+  </div>
+
+<!-- === GIỚI THIỆU === -->
+<div class="subpanel" data-key="single">
+  <h2>Giới thiệu</h2>
+  <div class="panel-scroll">
+
+    <div class="content-block">
+      <div class="block-image left">
+        <img src="images/intro1.jpg" alt="Lập trình viên">
+      </div>
+      <div class="block-text right">
+        <h3>Xin chào!</h3>
+        <p>Tôi tên là <b>Bao Phi Vũ Hữu Nghĩa</b>, sinh viên của trường <b> ĐẠI HỌC BÌNH DƯƠNG </b> khóa 2024-2028. </p>
+          <p>Tôi là một lập trình viên thực tập với đam mê thiết kế và lập trình, mông muốn thiết kế giao diện thân thiện, tinh tế và mượt mà. 
+          Tôi yêu thích việc biến ý tưởng của mình thành hiện thực qua từng dòng mã.</p>
+      </div>
+    </div>
+
+    <div class="content-block reverse">
+      <div class="block-image right">
+        <img src="images/intro2.jpg" alt="Hành trình học tập">
+      </div>
+      <div class="block-text left">
+        <h3>Hành trình của tôi</h3>
+        <p>Tôi bắt đầu với HTML và CSS đơn giản, sau đó học thêm JavaScript, React và UI animation. Tôi tin rằng lập trình không chỉ là công cụ mà còn là nghệ thuật biểu đạt sáng tạo.
+          Tôi biết rằng con đường lập trình này không hề dễ dàng, nhưng tôi có những người bạn phấn đấu và nổ lực cùng nhau, nó là nguồn động lực rất lớn với tôi.
+          Vì thế tôi tin rằng mình sẽ thằng công trên con đường này,  bạn có thể liên hệ với tôi thông qua: <a href="mailto:nghiabao487@gmail.com">Email</a> 
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <button class="back-btn" data-close>Quay lại</button>
+</div>
+
+
+<!-- === KỸ NĂNG === -->
+<div class="subpanel" data-key="options">
+  <h2>Chuyên môn</h2>
+  <div class="panel-scroll">
+
+    <div class="content-block">
+      <div class="block-image left">
+        <img src="images/skill1.jpg" alt="Front-end Development">
+      </div>
+      <div class="block-text right">
+        <h3>Có kiến thức về các ngôn ngữ lập trình khác nhau</h3>
+        <p>Thành thạo HTML, Python, C#, C++. </p>
+      </div>
+    </div>
+
+    <div class="content-block reverse">
+      <div class="block-image right">
+        <img src="images/skill2.jpg" alt="UI / UX Design">
+      </div>
+      <div class="block-text left">
+        <h3>UI / UX Design</h3>
+        <p>Hiểu biết về bố cục, màu sắc và trải nghiệm người dùng. Thích tạo ra giao diện có hồn, vừa thẩm mỹ vừa dễ sử dụng, lấy cảm hứng từ game và thiên nhiên.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="block-image left">
+        <img src="images/skill3.jpg" alt="Animation & Interaction">
+      </div>
+      <div class="block-text right">
+        <h3>Có kinh nghiệm trong thiết kế website phù hợp với người dùng</h3>
+        <p>Bằng cách sử dụng sử dụng HTML, CSS, Javascrips, tôi yêu thích việc xây dựng những trang web mang lại trải nghiệm mượt mà và thân thiện cho người dùng.</p>
+      </div>
+    </div>
+
+  </div>
+  <button class="back-btn" data-close>Quay lại</button>
+</div>
+
+
+<!-- === DỰ ÁN === -->
+<div class="subpanel" data-key="credits">
+  <h2>Dự án</h2>
+  <div class="panel-scroll">
+
+  <div class="content-block">
+    <div class="block-image left card-stack">
+      <img src="images/project1a.jpg" alt="Portfolio" class="card active">
+      <img src="images/project1b.jpg" alt="Portfolio" class="card">
+      <img src="images/project1c.jpg" alt="Portfolio" class="card">
+    </div>
+    <div class="block-text right">
+      <h3>Website cá nhân</h3>
+      <p>Một dự án giới thiệu bản thân được lấy cảm hứng từ phong cách game cổ điển,  
+      kết hợp hiệu ứng âm thanh nhẹ và các bảng menu động như bạn đang xem hiện tại.</p>
+    </div>
+  </div>
+
+  <div class="content-block reverse">
+    <div class="block-image right card-stack right-stack">
+      <img src="images/project2a.jpg" alt="Ứng dụng công việc" class="card active">
+      <img src="images/project2b.jpg" alt="Ứng dụng công việc" class="card">
+      <img src="images/project2c.jpg" alt="Ứng dụng công việc" class="card">
+    </div>
+    <div class="block-text left">
+      <h3>Wed cảnh báo tội phạm</h3>
+      <p>MCác trang web cảnh báo tội phạm đóng vai trò rất quan trọng trong việc giúp người dân nắm bắt kịp thời những thông tin về tình hình an ninh trật tự. 
+        Thông qua đó, mọi người có thể nhận biết các thủ đoạn phạm tội mới, cảnh giác hơn khi ra ngoài hoặc khi sử dụng mạng xã hội. 
+        Không chỉ giúp cộng đồng chủ động phòng ngừa, những trang web này còn góp phần hỗ trợ cơ quan chức năng trong công tác điều tra, đảm bảo cuộc sống an toàn và bình yên cho xã hội.
+        Thông tin chi tiết trên: <a href="https://github.com/Kietvu1443/Criminal_investication" target="_blank" rel="noopener">phát triển ứng dụng cảnh báo tội phạm</a> </p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-image left card-stack">
+      <img src="images/project3a.jpg" alt="Giao diện game mini" class="card active">
+      <img src="images/project3b.jpg" alt="Giao diện game mini" class="card">
+      <img src="images/project3c.jpg" alt="Giao diện game mini" class="card">
+    </div>
+    <div class="block-text right">
+      <h3>Làm mộ con game mini</h3>
+      <p>tôi muốn làm một con game chiến đấu thật vui bằng python, có thể chơi cùng bạn bè và anh em của tôi.
+        Tôi đã bắt đầu làm con game này từ hồi tháng 6 và nó vẫn đang được cập nhật từng ngày, theo dự tính của tôi nó đã được 60% và dự kiến trong tết 2026 nó sẽ có bản demo đầu tiên.
+        Tôi muốn phát triển nó dài lâu, khi nào có thông tin tôi sẽ cập nhật tiếp tục.
+        Nơi tôi học tập và tham khảo để phát triển con game mơ ước: <a href="https://github.com/JnyJny/DungeonGenerator/blob/master/Dungeon.py" target="_blank" rel="noopener">cũng có thể giúp bạn được gì đó</a> 
+      </p>
+    </div>
+    </div>
+  </div>
+  <button class="back-btn" data-close>Quay lại</button>
+</div>
+
+<!-- === SỞ THÍCH === -->
+<div class="subpanel" data-key="multi">
+
+  <h2>Sở thích</h2>
+  <div class="panel-scroll">
+
+  <div class="content-block">
+    <div class="block-image left card-stack">
+      <img src="images/giaitri1a.jpg" alt="Nghe nhạc" class="card active">
+      <img src="images/giaitri1b.jpg" alt="Nghe nhạc" class="card">
+      <img src="images/giaitri1c.jpg" alt="Nghe nhạc" class="card">
+    </div>
+    <div class="block-text right">
+      <h3>Âm nhạc</h3>
+      <p>Tôi yêu thích những bản nhạc lofi, indie và đôi khi là kém người nghe.  
+      Âm nhạc giúp tôi tập trung và tạo cảm xúc tích cực trong công việc, nhưng đôi lúc cũng có những khoảng lặng cho không gian riêng tư.
+      Một số bài hát tôi thường nghe: <a href="https://www.youtube.com/watch?v=KSe4k0WrpjY&list=RDKSe4k0WrpjY&start_radio=1" target="_blank" rel="noopener">Tình cờ yêu em</a>, <a href="https://www.youtube.com/watch?v=6a5_Dv_vEFI&list=RDKSe4k0WrpjY&index=3" target="_blank" rel="noopener">Mộng chiều xuân</a>, <a href="https://www.youtube.com/watch?v=-_CBdprsw6c&list=RD-_CBdprsw6c&start_radio=1" target="_blank" rel="noopener">nhạc tết lofi</a> </p>
+    </div>
+  </div>
+
+  <div class="content-block reverse">
+    <div class="block-image right card-stack right-stack">
+      <img src="images/giaitri2a.jpg" alt="Thiên nhiên" class="card active">
+      <img src="images/giaitri2b.jpg" alt="Thiên nhiên" class="card">
+      <img src="images/giaitri2c.jpg" alt="Thiên nhiên" class="card">
+    </div>
+    <div class="block-text left">
+      <h3>Thiên nhiên</h3>
+      <p>Tôi thích chăm sóc cây cảnh, vì đó là khoảng thời gian để tâm hồn được thư giãn và hòa mình với thiên nhiên. 
+        Mỗi khi tưới nước, tỉa lá hay ngắm nhìn những chồi non mới nhú, tôi cảm nhận được sự bình yên và niềm vui giản dị trong cuộc sống. 
+        Cây cối như những người bạn thầm lặng, cùng tôi trải qua từng ngày, giúp tôi học được sự kiên nhẫn và trân trọng những điều nhỏ bé quanh mình.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-image left card-stack">
+      <img src="images/giaitri3a.jpg" alt="Game" class="card active">
+      <img src="images/giaitri3b.jpg" alt="Game" class="card">
+      <img src="images/giaitri3c.jpg" alt="Game" class="card">
+    </div>
+    <div class="block-text right">
+      <h3>Game</h3>
+      <p>Tôi thích những tựa game có chiến thuật, đối kháng. sáng tạo và chiều sâu cảm xúc như <a href="https://www.leagueoflegends.com/vi-vn/" target="_blank" rel="noopener">Liên Minh Huyền Thoại</a>, <a href="https://www.dota2.com/home" target="_blank" rel="noopener">Dota2</a>, <a href="https://www.minecraft.net/en-us" target="_blank" rel="noopener">MineCraft</a>.
+      Game là cách tôi giải trí và có thêm nhiều ý tưởng để thiết kế.</p>
+    </div>
+  </div>
+
+  <div class="content-block reverse">
+    <div class="block-image right card-stack right-stack">
+      <img src="images/giaitri4a.jpg" alt="Nhiếp ảnh" class="card active">
+      <img src="images/giaitri4b.jpg" alt="Nhiếp ảnh" class="card">
+      <img src="images/giaitri4c.jpg" alt="Nhiếp ảnh" class="card">
+    </div>
+    <div class="block-text left">
+      <h3>Nhiếp ảnh</h3>
+      <p>Tôi yêu thích việc ghi lại những khoảnh khắc đời thường —  
+      đặc biệt là ánh sáng ban mai hoặc khung cảnh hoàng hôn yên bình.</p>
+    </div>
+  </div>
+  </div>
+  <button class="back-btn" data-close>Quay lại</button>
+</div>
+
+
+
+
+
+  <!-- Sunflower -->
+  <img src="images/flower.png" alt="Sunflower" class="sunflower" id="sunflower" />
+
+  <!-- Nút tải tài liệu -->
+  <a href="files/my_portfolio.pdf" download class="download-btn" title="Tải tài liệu của tôi">
+    📄 Tải CV của tôi.
+  </a>
+<div class="firefly-area"></div>
+  <!-- Footer -->
+  <footer id="siteFooter">
+    © 2025 Bao Phi Vũ Hữu Nghĩa —
+    <a href="https://langgeek.net/" target="_blank" rel="noopener">GitHub</a> |
+    <a href="mailto:nghiabao487@gmail.com">Email</a> |
+    <a href="https://www.facebook.com/nghia.bao.1650?locale=vi_VN" target="_blank" rel="noopener">Facebook</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
