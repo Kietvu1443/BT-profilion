@@ -317,3 +317,111 @@ window.addEventListener("load", () => {
   console.log("🌻 Hiệu ứng bông hoa đã được kích hoạt!");
 });
 
+// === Lightbox ảnh (zoom ảnh khi click) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const viewer = document.createElement("div");
+  viewer.className = "image-viewer";
+  const img = document.createElement("img");
+  viewer.appendChild(img);
+  document.body.appendChild(viewer);
+
+  // Khi click vào ảnh
+  document.querySelectorAll(".block-image img").forEach(image => {
+    image.addEventListener("click", () => {
+      img.src = image.src;
+      viewer.classList.add("active");
+    });
+  });
+
+  // Khi click vào vùng nền hoặc ảnh thì đóng
+  viewer.addEventListener("click", () => {
+    viewer.classList.remove("active");
+  });
+
+  // Thoát bằng phím ESC
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") viewer.classList.remove("active");
+  });
+});
+// === LIGHTBOX GALLERY cho card-stack ===
+document.addEventListener("DOMContentLoaded", () => {
+  const viewer = document.createElement("div");
+  viewer.className = "image-viewer";
+  viewer.innerHTML = `
+    <button class="viewer-btn left" aria-label="Ảnh trước">⟵</button>
+    <img src="" alt="">
+    <button class="viewer-btn right" aria-label="Ảnh kế">⟶</button>
+    <div class="viewer-caption"></div>
+  `;
+  document.body.appendChild(viewer);
+
+  const imgEl = viewer.querySelector("img");
+  const caption = viewer.querySelector(".viewer-caption");
+  const btnLeft = viewer.querySelector(".viewer-btn.left");
+  const btnRight = viewer.querySelector(".viewer-btn.right");
+
+  let currentIndex = 0;
+  let images = [];
+  let activeInterval = null;
+
+  // Khi click vào 1 card-stack
+  document.querySelectorAll(".card-stack").forEach(stack => {
+    stack.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const cards = Array.from(stack.querySelectorAll(".card"));
+      if (!cards.length) return;
+
+      // dừng auto-rotate
+      if (stack.dataset.intervalId) {
+        clearInterval(stack.dataset.intervalId);
+        stack.dataset.intervalId = "";
+      }
+
+      images = cards.map(c => ({ src: c.src, alt: c.alt }));
+      const activeIndex = cards.findIndex(c => c.classList.contains("active"));
+      currentIndex = activeIndex >= 0 ? activeIndex : 0;
+
+      showImage(currentIndex);
+      viewer.classList.add("active");
+    });
+  });
+
+  // Hiển thị ảnh
+  function showImage(index) {
+    const item = images[index];
+    imgEl.src = item.src;
+    imgEl.alt = item.alt;
+    caption.textContent = item.alt || "";
+  }
+
+  // Chuyển trái/phải
+  btnLeft.addEventListener("click", e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  });
+  btnRight.addEventListener("click", e => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  });
+
+  // Click ra ngoài hoặc ảnh thì đóng
+  viewer.addEventListener("click", () => {
+    viewer.classList.remove("active");
+  });
+
+  // Phím tắt
+  document.addEventListener("keydown", e => {
+    if (!viewer.classList.contains("active")) return;
+    if (e.key === "Escape") viewer.classList.remove("active");
+    if (e.key === "ArrowRight") {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+    if (e.key === "ArrowLeft") {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+  });
+});

@@ -931,3 +931,103 @@ body.dark-mode .block-text {
 .sunflower.spin {
   animation: spin 1s ease-in-out;
 }
+/* === Lightbox Xem Ảnh === */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.image-viewer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: zoomIn 0.4s ease forwards;
+  cursor: zoom-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* === Lightbox Gallery === */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.image-viewer.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-viewer img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  animation: zoomIn 0.4s ease forwards;
+  cursor: zoom-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Nút điều hướng trái phải */
+.viewer-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  color: #f5d36c;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 4100;
+  user-select: none;
+}
+.viewer-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.viewer-btn.left { left: 40px; }
+.viewer-btn.right { right: 40px; }
+
+/* Caption hiển thị alt ảnh */
+.viewer-caption {
+  position: absolute;
+  bottom: 30px;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100%;
+  text-shadow: 1px 1px 2px #000;
+}
+
+body.dark-mode .image-viewer {
+  background: rgba(10, 10, 10, 0.9);
+}
